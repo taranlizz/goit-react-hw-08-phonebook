@@ -28,8 +28,6 @@ export const ContactForm = () => {
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
-  console.log(contacts);
-
   const checkIsPresent = contact => {
     const isPresent = savedContact =>
       savedContact.name.toLowerCase() === contact.name.toLowerCase();
