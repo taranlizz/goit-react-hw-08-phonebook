@@ -13,7 +13,7 @@ const contactSchema = Yup.object().shape({
       /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
       'Name may contain only letters, apostrophe, dash and spaces.'
     ),
-  phone: Yup.string()
+  number: Yup.string()
     .required('Required!')
     .matches(
       /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
@@ -28,6 +28,8 @@ export const ContactForm = () => {
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
+  console.log(contacts);
+
   const checkIsPresent = contact => {
     const isPresent = savedContact =>
       savedContact.name.toLowerCase() === contact.name.toLowerCase();
@@ -37,7 +39,7 @@ export const ContactForm = () => {
 
   return (
     <Formik
-      initialValues={{ name: '', phone: '' }}
+      initialValues={{ name: '', number: '' }}
       validationSchema={contactSchema}
       onSubmit={(contact, actions) => {
         contact.name = contact.name.trim();
@@ -53,8 +55,8 @@ export const ContactForm = () => {
         <Input name="name" id={nameInputID}></Input>
         <ErrorDiv name="name" component="div" />
         <Label htmlFor={numberInputID}>Number</Label>
-        <Input name="phone" id={numberInputID} type="tel"></Input>
-        <ErrorDiv name="phone" component="div" />
+        <Input name="number" id={numberInputID} type="tel"></Input>
+        <ErrorDiv name="number" component="div" />
         <Button type="submit">Add contact</Button>
       </FormEl>
     </Formik>
