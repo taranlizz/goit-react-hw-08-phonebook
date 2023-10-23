@@ -1,8 +1,14 @@
+import { CenterWrapper } from 'components/CenterWrapper/CenterWrapper';
+import { AccentText, PageHeading } from 'components/PageHeading/PageHeading';
+
 const Home = () => {
   return (
-    <>
-      <h1>HomePage</h1>
-    </>
+    <CenterWrapper>
+      <PageHeading>
+        Welcome to <AccentText>ContactBook</AccentText> - your digital address
+        book. Contact management made easy.
+      </PageHeading>
+    </CenterWrapper>
   );
 };
 

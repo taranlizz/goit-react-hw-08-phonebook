@@ -4,9 +4,9 @@ import { Logo } from 'components/Logo/Logo';
 export const Header = ({ children }) => {
   return (
     <AppBar
-      position="relative"
+      position="static"
       sx={{
-        height: 70,
+        height: '70px',
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'revert',
