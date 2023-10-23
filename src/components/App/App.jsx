@@ -7,11 +7,21 @@ import { refresh } from 'redux/auth/operations';
 import { RestrictedRoute } from 'components/RestrictedRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
 import { selectIsRefreshing } from 'redux/auth/selectors';
+import { ThemeProvider, createTheme } from '@mui/material';
 
 const HomePage = lazy(() => import('pages/Home'));
 const ContactsPage = lazy(() => import('pages/Contacts'));
 const LoginPage = lazy(() => import('pages/Login'));
 const RegisterPage = lazy(() => import('pages/Register'));
+
+const theme = createTheme({
+  palette: {
+    secondary: {
+      main: '#FFFFFF',
+      contrastText: '#1976D2',
+    },
+  },
+});
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -24,31 +34,36 @@ export const App = () => {
   return isRefreshing ? (
     'Fetching user...'
   ) : (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route
-          path="contacts"
-          element={
-            <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
-          }
-        />
-        <Route
-          path="login"
-          element={
-            <RestrictedRoute component={<LoginPage />} redirectTo="/contacts" />
-          }
-        />
-        <Route
-          path="register"
-          element={
-            <RestrictedRoute
-              component={<RegisterPage />}
-              redirectTo="/contacts"
-            />
-          }
-        />
-      </Route>
-    </Routes>
+    <ThemeProvider theme={theme}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute
+                component={<LoginPage />}
+                redirectTo="/contacts"
+              />
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute
+                component={<RegisterPage />}
+                redirectTo="/contacts"
+              />
+            }
+          />
+        </Route>
+      </Routes>
+    </ThemeProvider>
   );
 };

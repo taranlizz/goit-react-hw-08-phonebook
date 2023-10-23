@@ -26,6 +26,11 @@ ul {
   padding: 0;
   }
 
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+
   img {
     display: block;
     max-width: 100%;
