@@ -1,16 +1,21 @@
-import { ButtonOutlined, ButtonContained } from 'components/Button/Button';
-import { Link } from 'react-router-dom';
 import { AuthWrapper } from './AuthNav.styled';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 export const AuthNav = () => {
   return (
     <AuthWrapper>
-      <ButtonOutlined pathTo="/login" component={Link}>
+      <Button variant="outlined" color="secondary" component={Link} to="/login">
         Sign In
-      </ButtonOutlined>
-      <ButtonContained pathTo="/register" component={Link}>
+      </Button>
+      <Button
+        variant="contained"
+        color="secondary"
+        component={Link}
+        to="/register"
+      >
         Sign Up
-      </ButtonContained>
+      </Button>
     </AuthWrapper>
   );
 };

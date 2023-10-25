@@ -1,9 +1,16 @@
-import { Formik, Form, Field } from 'formik';
+import { nanoid } from 'nanoid';
+import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/operations';
+import { FormEl, InputEl, LabelEl } from './LoginForm.styled';
+import { Button } from '@mui/material';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+
+  const emailInputID = nanoid();
+  const passwordInputID = nanoid();
+
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
@@ -12,15 +19,25 @@ export const LoginForm = () => {
         actions.resetForm();
       }}
     >
-      <Form>
-        <label>
-          Email <Field type="email" name="email" />
-        </label>
-        <label>
-          Password <Field type="password" name="password" />
-        </label>
-        <button type="submit">Sign In</button>
-      </Form>
+      <FormEl>
+        <LabelEl htmlFor={emailInputID}>Email</LabelEl>
+        <InputEl
+          type="email"
+          name="email"
+          id={emailInputID}
+          placeholder="Please enter your email"
+        />
+        <LabelEl htmlFor={passwordInputID}>Password </LabelEl>
+        <InputEl
+          type="password"
+          name="password"
+          id={passwordInputID}
+          placeholder="Enter password"
+        />
+        <Button type="submit" variant="contained" color="secondary">
+          Sign In
+        </Button>
+      </FormEl>
     </Formik>
   );
 };

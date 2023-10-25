@@ -1,5 +1,7 @@
 import { CenterWrapper } from 'components/CenterWrapper/CenterWrapper';
-import { AccentText, PageHeading } from 'components/PageHeading/PageHeading';
+import { AccentText, PageHeading } from './Home.styled';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 const Home = () => {
   return (
@@ -8,6 +10,14 @@ const Home = () => {
         Welcome to <AccentText>ContactBook</AccentText> - your digital address
         book. Contact management made easy.
       </PageHeading>
+      <Button
+        variant="contained"
+        color="primary"
+        component={Link}
+        to="/register"
+      >
+        Start manage contacts
+      </Button>
     </CenterWrapper>
   );
 };

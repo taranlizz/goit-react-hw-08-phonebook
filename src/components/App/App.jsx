@@ -9,16 +9,22 @@ import { PrivateRoute } from 'components/PrivateRoute';
 import { selectIsRefreshing } from 'redux/auth/selectors';
 import { ThemeProvider, createTheme } from '@mui/material';
 
-const HomePage = lazy(() => import('pages/Home'));
+const HomePage = lazy(() => import('pages/Home/Home'));
 const ContactsPage = lazy(() => import('pages/Contacts'));
-const LoginPage = lazy(() => import('pages/Login'));
+const LoginPage = lazy(() => import('pages/Login/Login'));
 const RegisterPage = lazy(() => import('pages/Register'));
 
 const theme = createTheme({
   palette: {
-    secondary: {
+    primary: {
       main: '#FFFFFF',
-      contrastText: '#1976D2',
+      dark: 'rgba(127, 86, 217, 0.04)',
+      contrastText: '#7F56D9',
+    },
+    secondary: {
+      main: '#7F56D9',
+      dark: '#6941c6',
+      contrastText: '#FFFFFF',
     },
   },
 });
