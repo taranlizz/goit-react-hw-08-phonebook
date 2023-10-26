@@ -1,15 +1,15 @@
 import { AuthHeading } from 'components/AuthHeading/AuthHeading';
-import { AuthWrapper } from 'components/AuthWrapper/AuthWrapper.styled';
 import { CenterWrapper } from 'components/CenterWrapper/CenterWrapper';
+import { FormWrapper } from 'components/FormStyle/FormStyle.styled';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 
 const Login = () => {
   return (
     <CenterWrapper>
-      <AuthWrapper>
+      <FormWrapper>
         <AuthHeading>Login to your account</AuthHeading>
         <LoginForm />
-      </AuthWrapper>
+      </FormWrapper>
     </CenterWrapper>
   );
 };

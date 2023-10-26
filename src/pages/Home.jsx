@@ -1,5 +1,5 @@
 import { CenterWrapper } from 'components/CenterWrapper/CenterWrapper';
-import { AccentText, PageHeading } from './Home.styled';
+import { AccentText, PageHeading } from 'components/HomeTitle/HomeTitle.styled';
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 

@@ -5,6 +5,7 @@ export const PageHeading = styled.h1`
   margin-bottom: 40px;
   font-size: 45px;
   font-weight: 700;
+  font-family: roboto;
   text-align: center;
   transform: translateY(-80px);
 `;

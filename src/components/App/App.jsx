@@ -9,9 +9,9 @@ import { PrivateRoute } from 'components/PrivateRoute';
 import { selectIsRefreshing } from 'redux/auth/selectors';
 import { ThemeProvider, createTheme } from '@mui/material';
 
-const HomePage = lazy(() => import('pages/Home/Home'));
+const HomePage = lazy(() => import('pages/Home'));
 const ContactsPage = lazy(() => import('pages/Contacts'));
-const LoginPage = lazy(() => import('pages/Login/Login'));
+const LoginPage = lazy(() => import('pages/Login'));
 const RegisterPage = lazy(() => import('pages/Register'));
 
 const theme = createTheme({

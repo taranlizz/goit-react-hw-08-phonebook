@@ -2,7 +2,11 @@ import { nanoid } from 'nanoid';
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/operations';
-import { FormEl, InputEl, LabelEl } from './LoginForm.styled';
+import {
+  FormEl,
+  InputEl,
+  LabelEl,
+} from 'components/FormStyle/FormStyle.styled';
 import { Button } from '@mui/material';
 
 export const LoginForm = () => {
@@ -26,13 +30,16 @@ export const LoginForm = () => {
           name="email"
           id={emailInputID}
           placeholder="Please enter your email"
+          required
         />
-        <LabelEl htmlFor={passwordInputID}>Password </LabelEl>
+        <LabelEl htmlFor={passwordInputID}>Password</LabelEl>
         <InputEl
           type="password"
           name="password"
           id={passwordInputID}
           placeholder="Enter password"
+          required
+          minLength="6"
         />
         <Button type="submit" variant="contained" color="secondary">
           Sign In

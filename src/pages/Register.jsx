@@ -1,11 +1,16 @@
+import { AuthHeading } from 'components/AuthHeading/AuthHeading';
+import { CenterWrapper } from 'components/CenterWrapper/CenterWrapper';
+import { FormWrapper } from 'components/FormStyle/FormStyle.styled';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
 const Register = () => {
   return (
-    <>
-      <h1>Sign Up</h1>
-      <RegisterForm />
-    </>
+    <CenterWrapper>
+      <FormWrapper>
+        <AuthHeading>Create new account</AuthHeading>
+        <RegisterForm />
+      </FormWrapper>
+    </CenterWrapper>
   );
 };
 
