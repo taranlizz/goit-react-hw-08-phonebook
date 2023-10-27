@@ -1,10 +1,16 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
-import { Button, ErrorDiv, FormEl, Input, Label } from './ContactForm.styled';
+import { ErrorDiv } from './ContactForm.styled';
+import {
+  FormEl,
+  InputEl,
+  LabelEl,
+} from 'components/FormStyle/FormStyle.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
+import { Button } from '@mui/material';
 
 const contactSchema = Yup.object().shape({
   name: Yup.string()
@@ -49,13 +55,15 @@ export const ContactForm = () => {
       }}
     >
       <FormEl>
-        <Label htmlFor={nameInputID}>Name</Label>
-        <Input name="name" id={nameInputID}></Input>
+        <LabelEl htmlFor={nameInputID}>Name</LabelEl>
+        <InputEl name="name" id={nameInputID}></InputEl>
         <ErrorDiv name="name" component="div" />
-        <Label htmlFor={numberInputID}>Number</Label>
-        <Input name="number" id={numberInputID} type="tel"></Input>
+        <LabelEl htmlFor={numberInputID}>Number</LabelEl>
+        <InputEl name="number" id={numberInputID} type="tel"></InputEl>
         <ErrorDiv name="number" component="div" />
-        <Button type="submit">Add contact</Button>
+        <Button type="submit" variant="contained" color="secondary">
+          Create
+        </Button>
       </FormEl>
     </Formik>
   );

@@ -10,7 +10,7 @@ import { selectIsRefreshing } from 'redux/auth/selectors';
 import { ThemeProvider, createTheme } from '@mui/material';
 
 const HomePage = lazy(() => import('pages/Home'));
-const ContactsPage = lazy(() => import('pages/Contacts'));
+const ContactsPage = lazy(() => import('pages/Contacts/Contacts'));
 const LoginPage = lazy(() => import('pages/Login'));
 const RegisterPage = lazy(() => import('pages/Register'));
 

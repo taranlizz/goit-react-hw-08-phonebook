@@ -4,6 +4,7 @@ import { ContactFilter } from 'components/ContactFilter/ContactFilter';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/operations';
+import { Wrapper, Title, SubTitle } from './Contacts.styled';
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -13,13 +14,13 @@ const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <h1>Phonebook</h1>
+    <Wrapper>
+      <Title>Create contact</Title>
       <ContactForm />
-      <h2>Contacts</h2>
+      <SubTitle>Contacts</SubTitle>
       <ContactFilter />
       <ContactList />
-    </div>
+    </Wrapper>
   );
 };
 

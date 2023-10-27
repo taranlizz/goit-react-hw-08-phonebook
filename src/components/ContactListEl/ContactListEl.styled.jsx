@@ -9,7 +9,7 @@ export const Item = styled.li`
 
 export const Button = styled.button`
   margin-left: 12px;
-  background-color: #3366cc;
+  background-color: #7f56d9;
   color: #fff;
   border: none;
   border-radius: 5px;

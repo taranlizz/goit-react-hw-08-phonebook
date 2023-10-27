@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const PageHeading = styled.h1`
+export const HomeTitle = styled.h1`
   position: absolute;
   margin-bottom: 40px;
   font-size: 45px;
