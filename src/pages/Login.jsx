@@ -1,6 +1,6 @@
-import { AuthHeading } from 'components/AuthHeading/AuthHeading';
+import { AuthHeading } from 'components/AuthFormHeading/AuthFormHeading';
 import { CenterWrapper } from 'components/CenterWrapper/CenterWrapper';
-import { FormWrapper } from 'components/Form/FormStyle.styled';
+import { FormWrapper } from 'components/FormStyles/FormStyles.styled';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 
 const Login = () => {

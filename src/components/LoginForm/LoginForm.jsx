@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import { login } from 'redux/auth/operations';
 import { Button, TextField } from '@mui/material';
-import { FormEl } from './LoginForm.styled';
+import { FormEl } from 'components/FormStyles/FormStyles.styled';
 
 const validationSchema = yup.object({
   email: yup

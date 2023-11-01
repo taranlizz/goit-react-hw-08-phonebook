@@ -1,58 +1,91 @@
-import { nanoid } from 'nanoid';
+import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { Formik } from 'formik';
-import { FormEl, InputEl, LabelEl } from 'components/Form/FormStyle.styled';
+import * as yup from 'yup';
+import { FormEl } from 'components/FormStyles/FormStyles.styled';
 import { register } from 'redux/auth/operations';
-import { Button } from '@mui/material';
+import { Button, TextField } from '@mui/material';
+
+const validationSchema = yup.object({
+  name: yup
+    .string()
+    .required('Name is required')
+    .matches(
+      /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
+      'Name may contain only letters, apostrophe, dash and spaces'
+    ),
+  email: yup
+    .string('Enter your email')
+    .email('Enter a valid email')
+    .required('Email is required'),
+  password: yup
+    .string('Enter your password')
+    .min(8, 'Password should be of minimum 8 characters length')
+    .required('Password is required'),
+});
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
-  const nameInputID = nanoid();
-  const emailInputID = nanoid();
-  const passwordInputID = nanoid();
+  const formik = useFormik({
+    initialValues: { name: '', email: '', password: '' },
+    validationSchema: validationSchema,
+    onSubmit: (credentials, actions) => {
+      dispatch(register(credentials));
+      actions.resetForm();
+    },
+  });
 
   return (
-    <>
-      <Formik
-        initialValues={{ name: '', email: '', password: '' }}
-        onSubmit={(credentials, actions) => {
-          dispatch(register(credentials));
-          actions.resetForm();
+    <FormEl onSubmit={formik.handleSubmit}>
+      <TextField
+        type="text"
+        name="name"
+        label="Name"
+        value={formik.values.name}
+        variant="outlined"
+        onChange={formik.handleChange}
+        error={formik.touched.name && Boolean(formik.errors.name)}
+        helperText={formik.touched.name && formik.errors.name}
+        placeholder="Please enter your name"
+        color="secondary"
+        required
+        sx={{
+          marginBottom: '15px',
         }}
-      >
-        <FormEl>
-          <LabelEl htmlFor={nameInputID}>Name</LabelEl>
-          <InputEl
-            type="text"
-            name="name"
-            id={nameInputID}
-            placeholder="Please enter your name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            required
-          />
-          <LabelEl htmlFor={emailInputID}>Email</LabelEl>
-          <InputEl
-            type="email"
-            name="email"
-            id={emailInputID}
-            placeholder="Enter your email"
-            required
-          />
-          <LabelEl htmlFor={passwordInputID}>Password</LabelEl>
-          <InputEl
-            type="password"
-            name="password"
-            id={passwordInputID}
-            placeholder="Enter password"
-            required
-            minLength="6"
-          />
-          <Button type="submit" variant="contained" color="secondary">
-            Sign Up
-          </Button>
-        </FormEl>
-      </Formik>
-    </>
+      />
+      <TextField
+        type="email"
+        name="email"
+        label="Email"
+        value={formik.values.email}
+        variant="outlined"
+        onChange={formik.handleChange}
+        error={formik.touched.email && Boolean(formik.errors.email)}
+        helperText={formik.touched.email && formik.errors.email}
+        placeholder="Please enter your email"
+        color="secondary"
+        required
+        sx={{ marginBottom: '15px' }}
+      />
+      <TextField
+        type="password"
+        name="password"
+        label="Password"
+        value={formik.values.password}
+        variant="outlined"
+        onChange={formik.handleChange}
+        error={formik.touched.password && Boolean(formik.errors.password)}
+        helperText={formik.touched.password && formik.errors.password}
+        placeholder="Please enter your password"
+        color="secondary"
+        required
+        sx={{
+          marginBottom: '15px',
+        }}
+      />
+      <Button type="submit" variant="contained" color="secondary">
+        Sign Up
+      </Button>
+    </FormEl>
   );
 };
