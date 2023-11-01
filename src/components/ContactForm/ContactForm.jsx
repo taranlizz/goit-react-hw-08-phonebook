@@ -2,11 +2,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
 import { ErrorDiv } from './ContactForm.styled';
-import {
-  FormEl,
-  InputEl,
-  LabelEl,
-} from 'components/FormStyle/FormStyle.styled';
+import { FormEl, InputEl, LabelEl } from 'components/Form/FormStyle.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';

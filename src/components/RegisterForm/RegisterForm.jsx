@@ -1,11 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
 import { Formik } from 'formik';
-import {
-  FormEl,
-  InputEl,
-  LabelEl,
-} from 'components/FormStyle/FormStyle.styled';
+import { FormEl, InputEl, LabelEl } from 'components/Form/FormStyle.styled';
 import { register } from 'redux/auth/operations';
 import { Button } from '@mui/material';
 
