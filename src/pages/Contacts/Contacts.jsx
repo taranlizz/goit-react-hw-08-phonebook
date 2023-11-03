@@ -1,10 +1,10 @@
-import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { ContactFilter } from 'components/ContactFilter/ContactFilter';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/operations';
 import { Wrapper, Title, SubTitle } from './Contacts.styled';
+import { ContactModal } from 'components/ContactModal/ContactModal';
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const Contacts = () => {
   return (
     <Wrapper>
       <Title>Create contact</Title>
-      <ContactForm />
+      <ContactModal />
       <SubTitle>Contacts</SubTitle>
       <ContactFilter />
       <ContactList />
