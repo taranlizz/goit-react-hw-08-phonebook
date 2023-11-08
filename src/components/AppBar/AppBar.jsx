@@ -9,7 +9,7 @@ export const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <Header>
-      <Navigation />
+      {isLoggedIn && <Navigation />}
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
     </Header>
   );

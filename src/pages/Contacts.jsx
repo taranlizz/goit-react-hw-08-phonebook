@@ -3,8 +3,8 @@ import { ContactFilter } from 'components/ContactFilter/ContactFilter';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/operations';
-import { Wrapper, Title, SubTitle } from './Contacts.styled';
 import { ContactModal } from 'components/ContactModal/ContactModal';
+import { Box, Typography } from '@mui/material';
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -14,13 +14,14 @@ const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <Wrapper>
-      <Title>Create contact</Title>
+    <Box sx={{ padding: '25px 0' }}>
+      <Typography variant="h4" component="h1" sx={{ fontWeight: 600 }}>
+        Contacts
+      </Typography>
       <ContactModal />
-      <SubTitle>Contacts</SubTitle>
       <ContactFilter />
       <ContactList />
-    </Wrapper>
+    </Box>
   );
 };
 

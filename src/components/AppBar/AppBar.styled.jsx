@@ -1,7 +1,10 @@
 import { AppBar, Container, Toolbar } from '@mui/material';
+import { selectIsLoggedIn } from 'redux/auth/selectors';
 import { Logo } from 'components/Logo/Logo';
+import { useSelector } from 'react-redux';
 
 export const Header = ({ children }) => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <AppBar
       position="static"
@@ -19,8 +22,7 @@ export const Header = ({ children }) => {
           sx={{
             width: '100%',
             display: 'flex',
-            flexDirection: 'revert',
-            justifyContent: 'space-between',
+            justifyContent: isLoggedIn ? 'space-between' : 'end',
           }}
         >
           {children}

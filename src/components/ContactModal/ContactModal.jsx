@@ -2,6 +2,7 @@ import { Button, Modal, Box, Typography } from '@mui/material';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
 
 const modalBoxStyle = {
   position: 'absolute',
@@ -25,7 +26,8 @@ export const ContactModal = () => {
         color="secondary"
         onClick={() => setIsOpen(true)}
       >
-        Add Contact
+        <GroupAddIcon sx={{ marginRight: '7px' }} />
+        Add
       </Button>
       <Modal open={isOpen} onClose={() => setIsOpen(false)}>
         <Box sx={modalBoxStyle}>

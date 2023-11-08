@@ -12,7 +12,7 @@ const Home = () => {
       </HomeTitle>
       <Button
         variant="contained"
-        color="primary"
+        color="secondary"
         component={Link}
         to="/register"
       >
